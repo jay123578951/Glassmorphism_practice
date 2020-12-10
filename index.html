@@ -7,6 +7,17 @@
   <link rel="stylesheet" href="./css/main.css">
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script type="text/javascript" src="jquery.interactive_bg.js"></script>
+  <script>
+	  $(document).ready(function(){
+       $(".bg").interactive_bg({
+        strength: 50,
+        scale: 1.05,
+        animationSpeed: "100ms",
+        contain: true,
+        wrapContent: false         
+       });
+		});
+  </script>
 </head>
 <body>
   <section class="container bg" data-ibg-bg="background.jpg">
@@ -22,15 +33,5 @@
       </p>
     </div>
   </section>
-
-  <script>
-     $(".bg").interactive_bg({
-      strength: 50,
-      scale: 1.05,
-      animationSpeed: "100ms",
-      contain: true,
-      wrapContent: false
-    });
-  </script>
 </body>
 </html>
