@@ -5,22 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glassmorphism</title>
   <link rel="stylesheet" href="./css/main.css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script type="text/javascript" src="jquery.interactive_bg.js"></script>
-  <script>
-	  $(document).ready(function(){
-       $(".bg").interactive_bg({
-        strength: 50,
-        scale: 1.05,
-        animationSpeed: "100ms",
-        contain: true,
-        wrapContent: false         
-       });
-		});
-  </script>
 </head>
 <body>
-  <section class="container bg" data-ibg-bg="background.jpg">
+
+  <section class="container bg">
     <div class="glass">
       <h1>Glassmorphism in user interfaces</h1>
       <p>
@@ -33,5 +21,37 @@
       </p>
     </div>
   </section>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      var $el = $('.bg');
+      var mousePos = {};
+      var boxCenter = {
+        x: $el.outerWidth() / 2,
+        y: $el.outerHeight() / 2
+      };
+      var bgPos = 50;
+        
+      $el.mousemove(function(e) {
+        var x = e.offsetX === undefined ? e.layerX : e.offsetX;
+        var y = e.offsetY === undefined ? e.layerY : e.offsetY;
+        
+        x -= boxCenter.x;
+        y -= boxCenter.y;
+        
+        var moveX = bgPos + (x / 14);
+        var moveY = bgPos + (y / 14);
+        $el
+          .css('background-size', '110%')
+          .css('background-position', moveX +'% ' + moveY +'%');
+      })
+      .mouseleave(function() {
+        $el
+          .css('background-size', '100%');
+      });
+      
+    });
+  </script>
 </body>
 </html>
