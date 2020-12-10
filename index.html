@@ -42,13 +42,30 @@
         
         var moveX = bgPos + (x / 14);
         var moveY = bgPos + (y / 14);
-        $el
-          .css('background-size', '110%')
-          .css('background-position', moveX +'% ' + moveY +'%');
+
+        var width = $(window).width();
+        var height = $(window).height();
+
+        if (width < 992) {
+          $el
+            .css('background-size', 'cover')
+            .css('background-position', '100%')
+        } else {
+          $el
+            .css('background-size', '110%')
+            .css('background-position', moveX +'% ' + moveY +'%');          
+        }
       })
       .mouseleave(function() {
-        $el
-          .css('background-size', '100%');
+        var width = $(window).width();
+        var height = $(window).height();
+        if (width < 992) {
+          $el
+            .css('background-size', 'cover');
+        } else {
+          $el
+            .css('background-size', '100%');          
+        }
       });
       
     });
