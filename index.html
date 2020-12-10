@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <section class="container bg" data-ibg-bg="background.jpg">
+    <div class="glass">
+      <h1>Glassmorphism in user interfaces</h1>
+      <p>
+        background: rgba(225,225,225,0.2);<br>
+        backdrop-filter: blur(10px);<br>
+        border-radius: 1rem;<br>
+        border: 3px solid transparent;<br>
+        background-clip: padding-box;<br>
+        box-shadow: 0 0 10px rgba(23, 39, 63, 0.2);
+      </p>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="jquery.interactive_bg.js"></script>
+  <script>
+     $(".bg").interactive_bg({
+      strength: 50,
+      scale: 1.05,
+      animationSpeed: "100ms",
+      contain: true,
+      wrapContent: false
+    });
+  </script>
+</body>
+</html>
